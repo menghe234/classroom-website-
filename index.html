@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班级介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .section-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        /* 轮播图样式 */
+        .carousel {
+            position: relative;
+            margin-bottom: 20px;
+            height: 300px;
+        }
+        
+        .carousel-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        
+        .carousel-prev {
+            left: 10px;
+        }
+        
+        .carousel-next {
+            right: 10px;
+        }
+        
+        /* 展开内容区域 */
+        .expandable-content {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        
+        .expandable-content h3 {
+            color: #333;
+        }
+        
+        .expandable-content p {
+            color: #666;
+            display: none;
+        }
+        
+        /* 学生寄语区域 */
+        .student-messages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .student-message {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .student-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        
+        /* 教师寄语区域 */
+        .teacher-message {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .teacher-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        
+        .teacher-content h4 {
+            margin-bottom: 10px;
+        }
+        
+        .teacher-content p {
+            color: #666;
+        }
+        
+        /* 风采轮播 */
+        .gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 150px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>班级介绍</h1>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">简介</a></li>
+                <li><a href="#">寄语</a></li>
+                <li><a href="#">班级风采</a></li>
+                <li><a href="#">班级荣誉</a></li>
+            </ul>
+        </nav>
+        
+        <!-- 轮播图区域 -->
+        <div class="carousel">
+            <img class="carousel-img" src="https://via.placeholder.com/1200x300" alt="班级合照">
+            <button class="carousel-btn carousel-prev">&lt;</button>
+            <button class="carousel-btn carousel-next">&gt;</button>
+        </div>
+        
+        <!-- 班级简介区域 -->
+        <div class="section-header">
+            <div class="section-title">班级简介</div>
+            <button class="section-btn">展开</button>
+        </div>
+        <div class="section-content">
+            <div class="expandable-content">
+                <h3>班级概况</h3>
+                <p>这里是班级概况的详细内容，介绍班级的基本情况、班级特色等信息。</p>
+            </div>
+        </div>
+        
+        <!-- 专业简介区域 -->
+        <div class="section-header">
+            <div class="section-title">专业简介</div>
+            <button class="section-btn">展开</button>
+        </div>
+        <div class="section-content">
+            <div class="expandable-content">
+                <h3>专业介绍</h3>
+                <p>这里是专业介绍的详细内容，包括专业方向、课程设置、就业前景等信息。</p>
+            </div>
+        </div>
+        
+        <!-- 学生寄语区域 -->
+        <div class="section-header">
+            <div class="section-title">学生寄语</div>
+        </div>
+        <div class="student-messages">
+            <div class="student-message">
+                <div class="student-avatar">
+                    <img src="https://via.placeholder.com/80x80" alt="学生头像">
+                </div>
+                <h4>学生1</h4>
+                <p>这里是学生1的寄语内容，表达对班级的热爱和对未来的期望。</p>
+            </div>
+            <div class="student-message">
+                <div class="student-avatar">
+                    <img src="https://via.placeholder.com/80x80" alt="学生头像">
+                </div>
+                <h4>学生2</h4>
+                <p>这里是学生2的寄语内容，分享在班级中的感受和成长。</p>
+            </div>
+        </div>
+        
+        <!-- 教师寄语区域 -->
+        <div class="section-header">
+            <div class="section-title">教师寄语</div>
+        </div>
+        <div class="teacher-message">
+            <img class="teacher-avatar" src="https://via.placeholder.com/100x100" alt="教师头像">
+            <div class="teacher-content">
+                <h4>班主任</h4>
+                <p>这里是教师寄语的详细内容，表达对学生的期望和鼓励，分享班级的教育理念和目标。</p>
+            </div>
+        </div>
+        
+        <!-- 班级风采区域 -->
+        <div class="section-header">
+            <div class="section-title">班级风采</div>
+            <button class="section-btn">轮播</button>
+        </div>
+        <div class="gallery">
+            <div class="gallery-item">班级活动1</div>
+            <div class="gallery-item">班级活动2</div>
+            <div class="gallery-item">班级活动3</div>
+            <div class="gallery-item">班级活动4</div>
+            <div class="gallery-item">班级活动5</div>
+        </div>
+        
+        <!-- 班级荣誉区域 -->
+        <div class="section-header">
+            <div class="section-title">班级荣誉</div>
+            <button class="section-btn">轮播</button>
+        </div>
+        <div class="gallery">
+            <div class="gallery-item">奖状1</div>
+            <div class="gallery-item">奖状2</div>
+            <div class="gallery-item">奖状3</div>
+            <div class="gallery-item">奖状4</div>
+        </div>
+        
+        <!-- 班级口号 -->
+        <div style="text-align: center; margin: 40px 0;">
+            <button style="padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                班级口号
+            </button>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 班级介绍网站 版权所有</p>
+    </footer>
+
+    <script>
+        // 展开/折叠内容
+        document.querySelectorAll('.expandable-content').forEach(item => {
+            item.addEventListener('click', function() {
+                this.querySelector('p').style.display = this.querySelector('p').style.display === 'block' ? 'none' : 'block';
+            });
+        });
+        
+        // 轮播图功能
+        let currentSlide = 0;
+        const slides = ['https://via.placeholder.com/1200x300', 'https://via.placeholder.com/1200x300/ff5555', 'https://via.placeholder.com/1200x300/5555ff'];
+        
+        document.querySelector('.carousel-prev').addEventListener('click', function() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateCarousel();
+        });
+        
+        document.querySelector('.carousel-next').addEventListener('click', function() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateCarousel();
+        });
+        
+        function updateCarousel() {
+            document.querySelector('.carousel-img').src = slides[currentSlide];
+        }
+        
+        // 自动轮播
+        setInterval(function() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateCarousel();
+        }, 5000);
+    </script>
+</body>
+</html>
